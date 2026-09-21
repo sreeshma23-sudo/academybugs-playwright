@@ -2,16 +2,12 @@ const testData = require('../test-data/testData.json');
 
  const {test, expect} = require('../fixtures/fixtures');
 test.describe('academy bugs functional bug suites',()=>{
-    let findbugspage;
-    let signUtils;
-    test.beforeEach(async({pomManager})=>{
-findbugspage =pomManager.getFindbugspage();
-signUtils= pomManager.getSignUtils();
+   
+
+test('visual bug#7 the caption of the Sign In button is misaligned vertically',async({pomManager,page})=>{
+const findbugspage =pomManager.getFindbugspage();
+const signUtils= pomManager.getSignUtils();
 await findbugspage.navigate();
-    });
-
-test('visual bug#7 the caption of the Sign In button is misaligned vertically',async({page})=>{
-
 await findbugspage.selectProduct(testData.visualBugs.productSelector);
 
      await page.waitForLoadState('networkidle');
@@ -20,14 +16,15 @@ const currentDisplay = await signUtils.getButtonCSSProperty('display');
         const paddingBottom = await signUtils.getButtonCSSProperty('paddingBottom');
 
 console.log(`Expected Result: Button should use 'flex' center layout and have equal padding alignment.`);
-        console.log(`Actual Result: Display Style: ${currentDisplay} | Padding Top: ${paddingTop} vs Bottom: ${paddingBottom}`);
-console.log(`Expected Result: Button should use 'flex' center layout and have equal padding alignment.`);
-        console.log(`Actual Result: Display Style: ${currentDisplay} | Padding Top: ${paddingTop} vs Bottom: ${paddingBottom}`);
+        
+console.log(`Actual Result: Display Style: ${currentDisplay} | Padding Top: ${paddingTop} vs Bottom: ${paddingBottom}`);
 expect(currentDisplay, 'BUG CONFIRMED: Misaligned button display properties found!').not.toBe('flex');
     });
   
-test('visual bug#9 the Sign In button overlaps footer',async({page})=>{
-
+test('visual bug#9 the Sign In button overlaps footer',async({pomManager,page})=>{
+const findbugspage =pomManager.getFindbugspage();
+const signUtils= pomManager.getSignUtils();
+await findbugspage.navigate();
   await findbugspage.selectProduct(testData.visualBugs.productSelector);
 await page.waitForLoadState('networkidle');
 

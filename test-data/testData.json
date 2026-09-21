@@ -1,0 +1,31 @@
+{
+  "functionalBugs": {
+    "productSelector": "#ec_product_li_4481370",
+    "expectedGrandTotal": "$52.99",
+    "targetQuantity": "4"
+  },
+  "contentBugs": {
+    "productSelector": "#ec_product_li_4481370",
+    "latinText": "Nam nec tellus",
+    "returnToStoreText": "RETURN TO STORE",
+    "russianTextRegex": "зарегистрированы",
+    "expectedNewUserText": "New User"
+  },
+  "visualBugs": {
+    "productSelector": "#ec_product_li_4481370",
+    "footerSelector": ".sq-footer-container",
+    "screenshotPath": "proofs/overlapping_bug_proof.png"
+  },
+  "crashBugs": {
+    "productSelector_4481370": "#ec_product_li_4481370",
+    "productSelector_4381370": "#ec_product_li_4381370",
+    "currencyValue": "EUR",
+    "commentData": {
+      "comment": "nice",
+      "author": "sreeshma",
+      "email": "sreeshma@gmail.com",
+      "url": "www.academybugs.com"
+    },
+    "crashMessage": "You found a crash bug"
+  }
+}
